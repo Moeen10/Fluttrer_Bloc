@@ -1,16 +1,6 @@
-# single_test
+# Packages Used
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. cupertino_icons: ^1.0.2 \n
+2. flutter_spinkit: ^5.2.0 \n
+3. flutter_bloc: ^8.1.3  \n
+4. connectivity_plus: ^4.0.2 \n

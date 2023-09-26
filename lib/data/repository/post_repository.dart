@@ -7,7 +7,6 @@ class PostRepository{
 
  Future<List<PostModel>> fetchPosts() async{
    try{
-
       Response response = await api.sendRequest.get('/posts');
       List<dynamic> postsDatas = response.data;
       return postsDatas.map((postdata) => PostModel.fromJson(postdata)).toList();

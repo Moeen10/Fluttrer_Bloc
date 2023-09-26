@@ -35,7 +35,31 @@ class TestPage extends StatelessWidget {
               },
               builder: (context, state)  {
                 if(state == InternetState.connect){
-                  return Text("Connected");
+                  return  Expanded(
+                    child: BlocBuilder<PostCubit,PostState >(
+                      builder: (context, state) {
+                        if(state is LoadingState){
+                          return Center(
+                            child: CircularProgressIndicator(),
+                          );
+                        }
+                        else if(state is GetDataState){
+                          return ListView.builder(
+
+                            itemCount: state.posts.length,
+                            itemBuilder: (context, index) {
+                              return ListTile(
+                                title: Text(state.posts[index].title.toString()),
+                              );
+                            },
+                          );
+                        }
+                        return  Center(
+                          child: Text("Here have an error"),
+                        );
+                      },
+                    ),
+                  );
                 }
                 if(state == InternetState.disconnect){
                   return Text("Disconnected");
@@ -44,31 +68,7 @@ class TestPage extends StatelessWidget {
               },
 
             ),
-            Expanded(
-              child: BlocBuilder<PostCubit,PostState >(
-                builder: (context, state) {
-                  if(state is LoadingState){
-                    return Center(
-                      child: CircularProgressIndicator(),
-                    );
-                  }
-                  else if(state is GetDataState){
-                    return ListView.builder(
 
-                      itemCount: state.posts.length,
-                      itemBuilder: (context, index) {
-                        return ListTile(
-                          title: Text(state.posts[index].title.toString()),
-                        );
-                      },
-                    );
-                  }
-                  return  Center(
-                    child: Text("Here have an error"),
-                  );
-                },
-              ),
-            ),
           ],
         ),
       ),

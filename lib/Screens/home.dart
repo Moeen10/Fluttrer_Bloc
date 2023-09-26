@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+
 import 'package:single_test/Screens/signWithEmail.dart';
+import 'package:single_test/Screens/sizeNav.dart';
 import 'package:single_test/blocs/SignIn/sign_in_bloc.dart';
 import 'package:single_test/cubit/InternetCubit.dart';
 
@@ -26,13 +28,16 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
 
         title: Text(widget.title),
+
       ),
+      drawer: SizeDrawer(),
       body: Center(
 
           child: Column(
 
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+
               Spacer(),
               BlocConsumer<InternetCubit , InternetState>(
                 listener: (context, state)  {
